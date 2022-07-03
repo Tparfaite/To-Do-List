@@ -1,0 +1,20 @@
+h2{
+    margin-left: 120px;
+}
+.main{
+    width: 500px;
+    margin-left: 120px;
+    margin-top: 50px;
+    height: 300px;
+    border: 1px solid rgb(23, 21, 21);
+    background-color: rgb(218, 171, 95);
+}
+.btn{
+    border: 1px solid black;
+    width: 30px;
+    height: 31px;
+}
+.todo{
+    width: 400px;
+    height: 25px;
+}
