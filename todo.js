@@ -1,5 +1,4 @@
 let whole=document.getElementById("whole");
-// console.log("this is todo list");
 let text=document.createElement("input");
 whole.appendChild(text);
 text.setAttribute("type","text");
@@ -16,9 +15,6 @@ let br1=document.createElement("br");
 whole.appendChild(br1);
 let br2=document.createElement("br");
 whole.appendChild(br2);
-
-let text1=document.getElementById("texte");
-
 
 
 
@@ -55,8 +51,10 @@ done.addEventListener("click",function(e){
 
 
 delet.addEventListener("click",function(e){
-  confirm(`Do you want to delete ?`);
+  if(confirm(`Do you want to delete this list ?`)){
     whole.removeChild(down);
+  }
+   
 })
 
 
