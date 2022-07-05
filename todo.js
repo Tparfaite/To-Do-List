@@ -6,6 +6,13 @@ text.setAttribute("placeholder","Add what to do");
 text.id="texte";
 text.classList.add("todo");
 
+text.addEventListener("keyup",(e)=>{
+  console.log(e);
+  if(e.target!=undefined){
+    e.target.value=e.target.value.toUpperCase();
+  }
+})
+
 let button=document.createElement("button");
 whole.appendChild(button);
 button.setAttribute("type","text");
@@ -21,38 +28,41 @@ whole.appendChild(br2);
 
 button.addEventListener("click",function(e){
     e.preventDefault();
-   let down=document.createElement("down");
-   down.classList.add("down");
-   down.textContent=text.value;
-   whole.appendChild(down);
+   let paragraph=document.createElement("paragraph");
+   paragraph.classList.add("down");
+   whole.appendChild(paragraph);
+   e.target.style.backgroundColor="yellow";
+   paragraph.textContent=text.value;
    text.value="";
-   down.style.backgroundColor="rgb(135,144,144";
+   paragraph.style.backgroundColor="rgb(135,144,144";
    let br3=document.createElement("br");
-whole.appendChild(br3);
+   whole.appendChild(br3);
 
    let done=document.createElement("button");
    done.setAttribute("type","submit");
    done.classList.add("done");
-   down.appendChild(done);
+   paragraph.appendChild(done);
    done.textContent="Done";
-   done.style.color="green";
+   done.style.color="aqua";
 
    let  delet=document.createElement("button");
    delet.setAttribute("type","submit");
    delet.classList.add("delete");
    delet.textContent="Delete";
-   down.appendChild(delet);
+   paragraph.appendChild(delet);
    delet.style.color="red";
 
 
 done.addEventListener("click",function(e){
-    down.style.textDecoration="line-through";
+    paragraph.style.textDecoration="line-through";
+    e.target.style.backgroundColor="green";
 })
 
 
 delet.addEventListener("click",function(e){
-  if(confirm(`Do you want to delete this list ?`)){
-    whole.removeChild(down);
+  e.target.style.backgroundColor="green";
+  if(confirm(`Do you want to delete `+paragraph.innerText+'?')){
+    whole.removeChild(paragraph);
   }
    
 })
